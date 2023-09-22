@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <body style="background-color:rgb(243, 203, 151) ;">
+        <h1>Menghitung Volume Bangun Ruang</h1>
+        <form method="post" onsubmit="return Validasi()" name="Form">
+        <table>
+            <tr>
+                <td>Pilih Bangun Ruang</td>
+                <td>:</td>
+                <td>
+                    <input type="radio" name="bangun" value="Tabung" onclick="Tabung()" checked /> Tabung
+                    <input type="radio" name="bangun" value="Kerucut" onclick="Kerucut()" />Kerucut
+                    <input type="radio" name="bangun" value="Bola" onclick="Bola()" />Bola
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>Volume Bangun Ruang</td>
+                <td>:</td>
+                <td id="nm_bangun">Tabung</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                <hr/></td>
+            </tr>
+            <tr>
+                <td id="bang1">Jari-jari</td>
+                <td>:</td>
+                <td><input type="number" name="bang1" value="" onkeyup="hitung()" placeholder="Masukkan Angka" /></td><br/>
+                <small style="color:red" id="Error"></small></td>
+            </tr>
+            <tr>
+                <td id="bang2">Tinggi</td>
+                <td>:</td>
+                <td><input type="number" name="bang2" value="" onkeyup="hitung()" placeholder="Masukkan Angka" /></td>
+            </tr>
+            <tr>
+                <td>Volume</td>
+                <td>:</td>
+                <td><input type="number" name="hasil" value="" readonly /><br/>
+                
+            </tr>
+            <tr>
+                <td colspan="3">
+                <hr/></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="right"><button> simpan</button></td>
+            </tr>
+        </table>
+        </form>
+        
+    </body>
+    <script type="text/javascript">
+        function Validasi() {
+            if (document.Form.bang1.value == "") {
+                document.getElementById("Error").innerHTML = "Jari-jari harus diisi";
+                return false;
+            } else {
+                document.getElementById("Error").innerHTML = "";
+            }
+        }
+
+        function Tabung() {
+            document.getElementById("nm_bangun").innerHTML = "Tabung";
+            document.getElementById("bang1").innerHTML = "Jari-jari";
+            document.getElementById("bang2").innerHTML = "Tinggi";
+            hitung();
+        }
+
+        function Kerucut() {
+            document.getElementById("nm_bangun").innerHTML = "Kerucut";
+            document.getElementById("bang1").innerHTML = "Jari-jari";
+            document.getElementById("bang2").innerHTML = "Tinggi";
+            hitung();
+        }
+
+        function Bola() {
+            document.getElementById("nm_bangun").innerHTML = "Bola";
+            document.getElementById("bang1").innerHTML = "Jari-jari";
+            hitung();
+        }
+
+        function hitung() {
+            var hasil = 0;
+            var bang1 = parseFloat(document.Form.bang1.value);
+            var bang2 = parseFloat(document.Form.bang2.value);
+
+            switch (document.Form.bangun.value){
+                case "Tabung":
+                    hasil = 3.14 * bang1 * bang1 * bang2;
+                    break;
+                case "Kerucut":
+                    hasil = (3.14 * bang1 * bang1 * bang2) / 3;
+                    break; 
+                case "Bola": 
+                    hasil = 4 * (3.14 * bang1 * bang1 * bang1) / 3;
+                    break;  
+            }
+            document.Form.hasil.value = hasil;
+        }
+
+    </script>
+</html>

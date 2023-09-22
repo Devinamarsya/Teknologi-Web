@@ -1,0 +1,40 @@
+header {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 15px;
+    font-size: 25px; 
+    font-weight: bold;
+    color:#333;
+}
+
+p {
+    color: #333;
+    font-size: 20px; 
+    text-align: left;
+}
+
+label, input {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 7px 15px;
+    margin: 5px;
+    background-color: #678dd3;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; 
+}
+
+footer {
+    font-family: serif;
+    text-align:left;
+    margin: 20px;
+    font-size: 15px; 
+    font-weight: bold; 
+    color: #535050; 
+    
+}
